@@ -1,0 +1,5 @@
+# .gitignore file
+/littlelemon/
+*.pyc
+__pycache__/
+db.sqlite3

@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
+    "restaurant",
+    "djoser",
+    "rest_framework.authtoken",
 ]
 
 MIDDLEWARE = [
@@ -74,9 +78,13 @@ WSGI_APPLICATION = "thelittlelemon.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'thelittlelemon',
+        'HOST' : '127.0.0.1',
+        'PORT' : '3306',
+        'USER' : 'root',
+        'PASSWORD' : 'fsdjk%5GHGU$@#&',
     }
 }
 
@@ -121,3 +129,12 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # Use Token Authentication
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',  # Only allow authenticated users
+    ],
+}
